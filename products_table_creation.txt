@@ -1,0 +1,18 @@
+TABLE CREATION(PRODUCTS TABLE):
+
+import java.sql.*;
+
+class Main {
+  private static final String url = "jdbc:sqlserver://localhost:1433;databaseName=mysql;encrypt=true;trustServerCertificate=true";
+  private static final String user = "sa";
+  private static final String password = "Admin@1234";
+
+  public static void main(String[] args) throws Exception {
+    try (Connection con = DriverManager.getConnection(url, user, password)) {
+      String query = "CREATE TABLE product (prod_id INT PRIMARY KEY,prod_name VARCHAR(50),category_desc VARCHAR(50),price DECIMAL(10,2),quantity INT,sale_date DATE);";
+      Statement st = con.createStatement();
+      st.executeUpdate(query);
+      System.out.println("created products table");
+    }
+  }
+}

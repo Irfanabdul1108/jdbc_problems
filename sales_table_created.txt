@@ -1,0 +1,17 @@
+CREATING SALES TABLE :
+import java.sql.*;
+
+class Main {
+  private static final String url = "jdbc:sqlserver://localhost:1433;databaseName=mysql;encrypt=true;trustServerCertificate=true";
+  private static final String user = "sa";
+  private static final String password = "Admin@1234";
+
+  public static void main(String[] args) throws Exception {
+    try (Connection con = DriverManager.getConnection(url, user, password)) {
+      String query = "CREATE TABLE Sales (trans_id INT PRIMARY KEY,prod_id INT,quantity INT,amount DECIMAL(10,2));";
+      Statement st = con.createStatement();
+      st.executeUpdate(query);
+      System.out.println("sales table created");
+    }
+  }
+}

@@ -1,0 +1,18 @@
+INSERTING DATA INTO PRODUCTS TABLE :
+import java.sql.*;
+
+class Main {
+  private static final String url = "jdbc:sqlserver://localhost:1433;databaseName=mysql;encrypt=true;trustServerCertificate=true";
+  private static final String user = "sa";
+  private static final String password = "Admin@1234";
+
+  public static void main(String[] args) throws Exception {
+    try (Connection con = DriverManager.getConnection(url, user, password)) {
+      String query = "INSERT INTO products VALUES (101, 'Laptop', 'Electronics', 50000.00, 10, '2026-06-05'), (102, 'Mouse', 'Electronics', 1000.00, 50, '2026-06-05'),(103, 'Keyboard', 'Electronics', 2000.00, 20, '2026-06-05'),(104, 'Chair', 'Furniture', 4000.00, 15, '2026-06-05'),(105, 'Table', 'Furniture', 8000.00, 5, '2026-06-05');";
+      Statement st = con.createStatement();
+      st.executeUpdate(query);
+      System.out.println("created values");
+    }
+
+  }
+}
