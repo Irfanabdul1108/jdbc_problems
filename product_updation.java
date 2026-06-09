@@ -1,8 +1,8 @@
-// 3. Accept details of new product and insert a row.
+// 1.Accept prod_id, new name and update the table.
 import java.sql.*;
 import java.util.Scanner;
 
-class q3 {
+class product_updation {
   private static final String url = "jdbc:sqlserver://localhost:1433;databaseName=mysql;encrypt=true;trustServerCertificate=true";
   private static final String user = "sa";
   private static final String password = "Admin@1234";
@@ -12,20 +12,12 @@ class q3 {
       Scanner s = new Scanner(System.in);
       int prod_id = s.nextInt();
       String prod_name = s.next();
-      String category_desc = s.next();
-      double price = s.nextDouble();
-      int quantity = s.nextInt();
-      String sale_date = s.next();
-      String query = "insert into products(prod_id,prod_name,category_desc,price,quantity,sale_date) values(?,?,?,?,?,?)";
+      String query = "update product where prod_id=? set prod_name=?";
       PreparedStatement pt = con.prepareStatement(query);
       pt.setInt(1, prod_id);
       pt.setString(2, prod_name);
-      pt.setString(3, category_desc);
-      pt.setDouble(4, price);
-      pt.setInt(5, quantity);
-      pt.setString(6, sale_date);
       pt.executeUpdate();
-      System.out.println("taking input entire row of products table and inserting");
+      System.out.println("updated the table by updating new value");
     }
 
   }

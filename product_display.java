@@ -1,7 +1,7 @@
 // 2. Display category description and average price of product.
 import java.sql.*;
 
-class q2 {
+class product_display {
   private static final String url = "jdbc:sqlserver://localhost:1433;databaseName=mysql;encrypt=true;trustServerCertificate=true";
   private static final String user = "sa";
   private static final String password = "Admin@1234";

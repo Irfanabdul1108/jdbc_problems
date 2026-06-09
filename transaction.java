@@ -2,7 +2,7 @@
 import java.sql.*;
 import java.util.Scanner;
 
-class q5 {
+class transaction {
     private static final String url = "jdbc:sqlserver://localhost:1433;databaseName=mysql;encrypt=true;trustServerCertificate=true";
     private static final String user = "sa";
     private static final String password = "Admin@1234";
