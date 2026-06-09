@@ -12,10 +12,10 @@ class product_updation {
       Scanner s = new Scanner(System.in);
       int prod_id = s.nextInt();
       String prod_name = s.next();
-      String query = "update product where prod_id=? set prod_name=?";
+      String query = "update product set prod_name=? where prod_id=?" ;
       PreparedStatement pt = con.prepareStatement(query);
-      pt.setInt(1, prod_id);
-      pt.setString(2, prod_name);
+      pt.setString(1, prod_name);
+      pt.setInt(2, prod_id);
       pt.executeUpdate();
       System.out.println("updated the table by updating new value");
     }
